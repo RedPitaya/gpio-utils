@@ -17,9 +17,9 @@ install_headers(libgpio_header)
 # TODO: it should be removed, if/when possible
 meson.add_install_script('install_vfat.sh')
 
-executable('gpio-event-mon', 'gpio-event-mon.c', include_directories : inc, link_with : libgpio_shared)
-executable('gpio-hammer',    'gpio-hammer.c',    include_directories : inc, link_with : libgpio_shared)
-executable('lsgpio',         'lsgpio.c',         include_directories : inc, link_with : libgpio_shared)
+executable('gpio-event-mon', 'gpio-event-mon.c', include_directories : inc, link_with : libgpio_shared, install : true)
+executable('gpio-hammer',    'gpio-hammer.c',    include_directories : inc, link_with : libgpio_shared, install : true)
+executable('lsgpio',         'lsgpio.c',         include_directories : inc, link_with : libgpio_shared, install : true)
 
 incgpio = include_directories(['.'])
 depgpio_shared = declare_dependency(link_with : libgpio_shared, include_directories : incgpio, dependencies : dep)
