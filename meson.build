@@ -13,6 +13,10 @@ libgpio_static = static_library('gpio-utils', src, dependencies : dep, include_d
 libgpio_header = ['gpio-utils.h']
 install_headers(libgpio_header)
 
+# this is only usefull for installing on a FAT partition
+# TODO: it should be removed, if/when possible
+meson.add_install_script('install_vfat.sh')
+
 executable('gpio-event-mon', 'gpio-event-mon.c', include_directories : inc, link_with : libgpio_shared)
 executable('gpio-hammer',    'gpio-hammer.c',    include_directories : inc, link_with : libgpio_shared)
 executable('lsgpio',         'lsgpio.c',         include_directories : inc, link_with : libgpio_shared)
