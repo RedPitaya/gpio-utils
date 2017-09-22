@@ -21,9 +21,11 @@ To build the project do:
 
 .. code-block:: shell-session
 
-   meson builddir --prefix /opt/redpitaya --buildtype release
+   meson builddir --buildtype release
    cd builddir
    ninja
+
+Meson can be called with the option ``--prefix /usr`` intead of the dafault prefix ``/usr/local``.
 
 The library and tools can be installed into the default path using:
 
