@@ -4,17 +4,17 @@ dep = []
 src = ['gpio-utils.c']
 inc = include_directories([])
 
-libgpio_shared = shared_library('gpio-utils', src, dependencies : dep, include_directories : inc,
+libgpio_shared = shared_library('gpio', src, dependencies : dep, include_directories : inc,
                                 version : '0.1.0', soversion : '0',
                                 install : true)
-libgpio_static = static_library('gpio-utils', src, dependencies : dep, include_directories : inc,
+libgpio_static = static_library('gpio', src, dependencies : dep, include_directories : inc,
                                 install : true)
 
 libgpio_header = ['gpio-utils.h']
 install_headers(libgpio_header)
 
 pkg = import('pkgconfig')
-pkg.generate(libraries : [],
+pkg.generate(libraries : libgpio_shared,
              subdirs : [],
              version : '0.1',
              name : 'libgpio',
