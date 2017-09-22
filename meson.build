@@ -13,6 +13,14 @@ libgpio_static = static_library('gpio-utils', src, dependencies : dep, include_d
 libgpio_header = ['gpio-utils.h']
 install_headers(libgpio_header)
 
+pkg = import('pkgconfig')
+pkg.generate(libraries : [],
+             subdirs : [],
+             version : '0.1',
+             name : 'libgpio',
+             filebase : 'gpio',
+             description : 'Linux kernel character driver GPIO utilities library.')
+
 # this is only usefull for installing on a FAT partition
 # TODO: it should be removed, if/when possible
 meson.add_install_script('install_vfat.sh')
