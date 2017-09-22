@@ -21,10 +21,6 @@ pkg.generate(libraries : [],
              filebase : 'gpio',
              description : 'Linux kernel character driver GPIO utilities library.')
 
-# this is only usefull for installing on a FAT partition
-# TODO: it should be removed, if/when possible
-meson.add_install_script('install_vfat.sh')
-
 executable('gpio-event-mon', 'gpio-event-mon.c', include_directories : inc, link_with : libgpio_shared, install : true)
 executable('gpio-hammer',    'gpio-hammer.c',    include_directories : inc, link_with : libgpio_shared, install : true)
 executable('lsgpio',         'lsgpio.c',         include_directories : inc, link_with : libgpio_shared, install : true)
